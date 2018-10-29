@@ -16,4 +16,10 @@ class TaskController extends Controller
     public function index(Request $request){
 		return view('task.index');
     }
+
+    public function store(Request $request){
+    	$this -> validate($request,[
+    		'name' => 'required | max:255',
+	    ]);
+    }
 }
