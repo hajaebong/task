@@ -27,9 +27,15 @@
                             <td class="table-text">
                                 <div>{{ $task->name }}</div>
                             </td>
-
+                            <!-- TODO: Delete Button -->
                             <td>
-                                <!-- TODO: Delete Button -->
+                                <form action="{{url('task/'.$task -> id)}}" method="POST">
+                                    {{ csrf_token() }}
+                                    {{ method_field('DELETE') }}
+                                    <button type="submit" id="delete-task-{{ $task -> id }}" class="btn btn-danger">
+                                        <i class="fa fa-btn fa-trash"></i>delete
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
